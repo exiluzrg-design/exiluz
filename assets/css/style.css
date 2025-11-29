@@ -639,7 +639,7 @@ body {
 
 .footer-inner {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse; /* 👈 LINKS ARRIBA, TEXTO ABAJO */
   align-items: center;
   gap: 10px;
   text-align: center;
@@ -832,8 +832,9 @@ body {
     grid-template-columns: 1fr;
   }
 
+  /* mantener el mismo orden en mobile: links arriba, texto abajo */
   .footer-inner {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
   .cart-layout {
