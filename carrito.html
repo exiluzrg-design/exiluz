@@ -1,83 +1,95 @@
-<!doctype html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <title>Carrito de compras - Exiluz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="assets/css/style.css" />
-</head>
-<body class="page--cart">
-  <header class="site-header">
-    <div class="container header-inner">
-      <div class="logo">
-        <a href="index.html">Exiluz</a>
-      </div>
-      <nav class="main-nav">
-        <a href="index.html">Inicio</a>
-        <a href="carrito.html" class="cart-link">
-          Carrito
-          <span id="cart-count" class="cart-count">0</span>
-        </a>
-      </nav>
-    </div>
-  </header>
+// =======================================================
+//  CARRITO EXILUZ
+// =======================================================
 
-  <main class="cart-main">
-    <section class="section section--cart container">
-      <h1>Carrito de compras</h1>
+const CART_KEY = "exiluz_cart_qty";
+const UNIT_PRICE = 18000; // precio base
+const DISCOUNT_15 = 2;  // 15% desde 2 unidades
+const DISCOUNT_20 = 3;  // 20% desde 3 unidades
 
-      <div id="cart-empty" class="cart-empty">
-        Tu carrito está vacío.  
-        <a href="index.html" class="link-inline">Seguir comprando</a>
-      </div>
+// Leer cantidad del localStorage
+function getQty() {
+  return parseInt(localStorage.getItem(CART_KEY)) || 0;
+}
 
-      <div id="cart-content" class="cart-layout">
-        <div class="cart-items">
-          <div class="cart-header-row">
-            <span class="th-producto">Producto</span>
-            <span class="th-cantidad">Cantidad</span>
-            <span class="th-precio">Precio</span>
-            <span class="th-subtotal">Subtotal</span>
-          </div>
-          <div id="cart-items-container"></div>
+// Guardar cantidad
+function setQty(n) {
+  localStorage.setItem(CART_KEY, n);
+  updateCartCount();
+}
+
+// Mostrar numerito en el header
+function updateCartCount() {
+  const el = document.getElementById("cart-count");
+  if (el) el.textContent = getQty();
+}
+
+// Render del carrito
+function renderCart() {
+  const qty = getQty();
+  const empty = document.getElementById("cart-empty");
+  const content = document.getElementById("cart-content");
+  const box = document.getElementById("cart-items-container");
+
+  if (qty < 1) {
+    empty.style.display = "block";
+    content.style.display = "none";
+    return;
+  }
+
+  empty.style.display = "none";
+  content.style.display = "flex";
+
+  // 🔥 PRODUCTO EN CARRITO (IMAGEN CORREGIDA!)
+  box.innerHTML = `
+    <div class="cart-item">
+      <div class="item-left">
+        <img class="cart-img" src="assets/img/banners/p1.webp" alt="Llavero Elijo Creer">
+        <div class="item-info">
+          <h3>Llavero Elijo Creer</h3>
+          <p>Badge electrónico con 3 estrellas</p>
         </div>
-
-        <aside class="cart-summary">
-          <h2>Resumen</h2>
-          <div class="summary-row">
-            <span>Subtotal:</span>
-            <span id="summary-subtotal">$0</span>
-          </div>
-          <div class="summary-row">
-            <span>Descuento:</span>
-            <span id="summary-discount">-$0</span>
-          </div>
-          <div class="summary-row">
-            <span>Envío:</span>
-            <span>Gratis</span>
-          </div>
-          <div class="summary-total">
-            <span>Total:</span>
-            <span id="summary-total">$0</span>
-          </div>
-          <p class="summary-note">
-            15% OFF comprando 2 o más unidades del llavero Elijo Creer.
-          </p>
-          <button id="btn-checkout" class="btn btn-primary btn-full">
-            Iniciar compra
-          </button>
-          <p id="checkout-message" class="checkout-message"></p>
-        </aside>
       </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <small>© <span id="year"></span> Exiluz. Todos los derechos reservados.</small>
+      <div class="item-qty">
+        <button class="qty-btn" id="minus">-</button>
+        <span id="qty">${qty}</span>
+        <button class="qty-btn" id="plus">+</button>
+      </div>
+
+      <span id="price">${format(UNIT_PRICE)}</span>
+      <span id="subtotal">${format(UNIT_PRICE * qty)}</span>
     </div>
-  </footer>
+  `;
 
-  <script src="assets/js/cart.js"></script>
-</body>
-</html>
+  updateTotals(qty);
+
+  // Eventos + y -
+  document.getElementById("minus").onclick = () => { if(qty>1){ setQty(qty-1); renderCart(); }};
+  document.getElementById("plus").onclick  = () => { setQty(qty+1); renderCart(); };
+}
+
+// Totales / descuentos
+function updateTotals(qty) {
+  let subtotal = UNIT_PRICE * qty;
+  let total = subtotal;
+  let discount = 0;
+
+  if (qty >= DISCOUNT_20) discount = subtotal * 0.20;
+  else if (qty >= DISCOUNT_15) discount = subtotal * 0.15;
+
+  total = subtotal - discount;
+
+  document.getElementById("summary-subtotal").textContent = format(subtotal);
+  document.getElementById("summary-discount").textContent = "-$" + discount.toLocaleString("es-AR");
+  document.getElementById("summary-total").textContent = format(total);
+}
+
+// Formato pesos
+function format(n){
+  return "$" + n.toLocaleString("es-AR");
+}
+
+// Init
+updateCartCount();
+renderCart();
