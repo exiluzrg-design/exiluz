@@ -6,17 +6,74 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- Slider simple para las 3 fotos del producto + ajuste logo header -->
+  <!-- Estilos extra: header + slider producto -->
   <style>
-    /* ==== LOGO HEADER ==== */
+    /* ==== HEADER: HAMBURGUESA IZQ, LOGO CENTRO, CARRITO DER ==== */
+    .header-inner {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+    }
+
+    .logo {
+      justify-self: center;
+    }
+
     .logo a {
       display: inline-block;
     }
 
     .logo-img {
-      height: 56px;      /* ajustá este alto si lo querés más grande/chico */
+      height: 56px; /* ajustá este valor si lo querés más grande/chico */
       width: auto;
       display: block;
+    }
+
+    /* Botón hamburguesa */
+    .nav-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 8px;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: #ffffff;
+    }
+
+    /* Carrito como ícono a la derecha */
+    .cart-link {
+      display: inline-flex;
+      align-items: center;
+      justify-self: end;
+      text-decoration: none;
+      color: #ffffff;
+      position: relative;
+    }
+
+    .cart-icon {
+      font-size: 22px;
+      line-height: 1;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -10px;
+      background: #00ccff;
+      color: #000;
+      font-size: 10px;
+      border-radius: 999px;
+      padding: 2px 5px;
+      min-width: 16px;
+      text-align: center;
     }
 
     /* ==== SLIDER PRODUCTO ==== */
@@ -85,6 +142,15 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="container header-inner">
+
+      <!-- HAMBURGUESA IZQUIERDA -->
+      <button class="nav-toggle" type="button" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- LOGO CENTRADO -->
       <div class="logo">
         <a href="index.html">
           <img
@@ -95,12 +161,12 @@
         </a>
       </div>
 
-      <nav class="main-nav">
-        <a href="index.html">Inicio</a>
-        <a href="carrito.html" class="cart-link">
-          Carrito <span id="cart-count" class="cart-count">0</span>
-        </a>
-      </nav>
+      <!-- CARRITO DERECHA -->
+      <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
+        <span class="cart-icon">🛒</span>
+        <span id="cart-count" class="cart-count">0</span>
+      </a>
+
     </div>
   </header>
 
@@ -273,7 +339,7 @@
           showSlide(current - 1);
         });
 
-        nextBtn addEventListener('click', function() {
+        nextBtn.addEventListener('click', function() {
           showSlide(current + 1);
         });
       }
