@@ -1,12 +1,50 @@
-document.addEventListener("DOMContentLoaded", async () => {
-  const container = document.getElementById("header-root");
-  if (!container) return;
+// assets/js/include-header.js
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    var root = document.getElementById('header-root');
+    if (!root) return;
 
-  try {
-    const response = await fetch("assets/partials/header.html");
-    const html = await response.text();
-    container.innerHTML = html;
-  } catch (e) {
-    console.error("No se pudo cargar header.html", e);
-  }
-});
+    root.innerHTML = `
+      <!-- Banner celeste con texto en movimiento -->
+      <div class="top-banner">
+        <div class="top-banner-track">
+          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
+          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
+          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
+          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
+        </div>
+      </div>
+
+      <!-- HEADER -->
+      <header class="site-header">
+        <div class="container header-inner">
+
+          <!-- HAMBURGUESA IZQUIERDA -->
+          <button class="nav-toggle" type="button" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+
+          <!-- LOGO CENTRADO -->
+          <div class="logo">
+            <a href="index.html">
+              <img
+                src="assets/img/banners/logo encabezado.webp"
+                alt="Exiluz"
+                class="logo-img"
+              />
+            </a>
+          </div>
+
+          <!-- CARRITO DERECHA -->
+          <a href="carrito.html" class="cart-link" aria-label="Ver carrito">
+            <span class="cart-icon">🛒</span>
+            <span id="cart-count" class="cart-count">0</span>
+          </a>
+
+        </div>
+      </header>
+    `;
+  });
+})();
