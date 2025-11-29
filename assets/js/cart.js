@@ -67,8 +67,18 @@ function renderCart() {
     subtotal += rowSubtotal;
     totalQty += item.quantity;
 
-    // 🔥 Fallback de imagen corregido: usa tu foto real p1.webp
-    const imageSrc = item.image || "assets/img/banners/p1.webp";
+    // ✅ FOTO DEL PRODUCTO: si la imagen guardada es rara, usamos p1.webp
+    const FALLBACK_IMAGE = "assets/img/banners/p1.webp";
+    let imageSrc = (item.image || "").trim();
+
+    // ignoramos rutas viejas tipo .jpg o que no sean /banners/*.webp
+    if (
+      !imageSrc ||
+      !imageSrc.includes("assets/img/banners/") ||
+      !imageSrc.endsWith(".webp")
+    ) {
+      imageSrc = FALLBACK_IMAGE;
+    }
 
     row.innerHTML = `
       <div class="cart-item-main">
