@@ -28,7 +28,7 @@
   display: inline-flex;
   white-space: nowrap;
   /* ⬇⬇⬇ ACÁ EL CAMBIO: 16s → 20s para bajar la velocidad con 5 textos */
-  animation: banner-scroll 20s linear infinite;
+  animation: banner-scroll 25s linear infinite;
 }
 
 /* Texto del banner */
