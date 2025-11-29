@@ -336,12 +336,12 @@ body {
 .media-wrap {
   display: flex;
   gap: 32px;
-  align-items: stretch; /* 🔥 Video y galería comparten altura */
+  align-items: stretch; /* Video y galería misma altura */
 }
 
 /* Video vertical tipo “celular” — protagonista */
 .media-video {
-  flex: 0 0 65%;          /* 💪 Más ancho que la galería */
+  flex: 0 0 65%;
   display: flex;
   justify-content: center;
 }
@@ -365,10 +365,13 @@ body {
 
 .media-gallery img {
   width: 100%;
+  height: 100%;
   display: block;
   border-radius: 16px;
-  flex: 1 1 0;           /* 🟦 Cada una ocupa 1/3 de la altura de la galería */
-  object-fit: cover;
+  flex: 1 1 0;           /* Cada una = 1/3 de la altura de la galería */
+  object-fit: contain;   /* 🔁 No recorta texto ni bordes */
+  background: #050607;   /* “Letterbox” negro para que no se note */
+  padding: 2px;          /* Un pelín de aire para que nada toque borde */
 }
 
 /* =========================================================
@@ -668,5 +671,7 @@ body {
   .media-gallery img {
     flex: 0 0 auto;
     height: auto;
+    object-fit: contain;
+    padding: 0;
   }
 }
