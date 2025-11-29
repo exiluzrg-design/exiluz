@@ -13,9 +13,6 @@
           <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
           <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
           <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
-          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
-          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
-          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
         </div>
       </div>
 
