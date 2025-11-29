@@ -283,6 +283,48 @@ body {
 }
 
 /* =========================================================
+   SECTION INTRO — ¿Estás listo para revivir la historia?
+   ========================================================= */
+.section-intro {
+  padding: 70px 0 65px;
+  background: #050607;
+  text-align: center;
+}
+
+.intro-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.intro-title {
+  font-size: 54px;
+  font-weight: 800;
+  color: #d4a645;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.intro-text {
+  font-size: 20px;
+  color: #e5e7eb;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 12px;
+}
+
+/* Mobile section-intro */
+@media (max-width: 768px) {
+  .intro-title {
+    font-size: 36px;
+  }
+  .intro-text {
+    font-size: 17px;
+    line-height: 1.55;
+  }
+}
+
+/* =========================================================
    PRODUCT CARD
    ========================================================= */
 .hero-product {
