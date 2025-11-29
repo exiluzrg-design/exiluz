@@ -19,8 +19,7 @@
   background: #00CCFF;
   overflow: hidden;
 
-  /* Altura Desktop */
-  height: 38px;
+  height: 38px;              /* altura desktop */
   display: flex;
   align-items: center;
 }
@@ -42,25 +41,9 @@
 }
 
 @keyframes banner-scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-
-/* Opcional: ajuste mobile si querés más bajo el banner
-@media (max-width: 768px) {
-  .top-banner {
-    height: 32px;
-  }
-  .top-banner span {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-  }
-}
-*/
 
 /* =========================================================
    HEADER: HAMBURGUESA IZQ, LOGO CENTRO, CARRITO DER
