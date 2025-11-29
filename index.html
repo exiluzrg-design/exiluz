@@ -278,5 +278,20 @@
   </script>
 
   <script src="assets/js/main.js"></script>
+
+  <!-- 🔥 Redirección al carrito al hacer clic en "Agregar al carrito" -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.getElementById('btn-add-home');
+      if (!btn) return;
+
+      btn.addEventListener('click', function () {
+        // Le damos un pequeño margen para que main.js haga su trabajo
+        setTimeout(function () {
+          window.location.href = 'carrito.html';
+        }, 150);
+      });
+    });
+  </script>
 </body>
 </html>
