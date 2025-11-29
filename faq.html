@@ -8,47 +8,20 @@
   <!-- base general -->
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <!-- encabezado + top banner iguales al index -->
+  <!-- encabezado + top banner (estilos) -->
   <link rel="stylesheet" href="assets/css/header-banner.css">
 
   <!-- estilos solo legales -->
   <link rel="stylesheet" href="assets/css/legal.css">
+
+  <!-- 💡 HEADER+BANNER inyectado por JS, 1 sola fuente -->
+  <script src="assets/js/header-banner.js" defer></script>
 </head>
 
 <body class="page--legal">
 
-  <!-- Banner superior (IDÉNTICO al index) -->
-  <div class="top-banner">
-    <div class="top-banner-track">
-      <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-      <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-      <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-      <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-    </div>
-  </div>
-
-  <!-- HEADER EXACTO AL INDEX -->
-  <header class="site-header">
-    <div class="container header-inner">
-
-      <button class="nav-toggle" type="button">
-        <span></span><span></span><span></span>
-      </button>
-
-      <div class="logo">
-        <a href="index.html">
-          <img src="assets/img/banners/logo encabezado.webp" alt="Exiluz" class="logo-img">
-        </a>
-      </div>
-
-      <a href="carrito.html" class="cart-link">
-        <span class="cart-icon">🛒</span>
-        <span id="cart-count" class="cart-count">0</span>
-      </a>
-
-    </div>
-  </header>
-
+  <!-- AQUÍ se inyectan banner + header -->
+  <div id="header-root"></div>
 
   <!-- ===================== CONTENIDO LEGAL ===================== -->
   <main class="legal-main container">
@@ -102,7 +75,6 @@
 
   </main>
 
-
   <!-- Footer igual al index -->
   <footer class="site-footer">
     <div class="container footer-inner">
@@ -111,6 +83,6 @@
     </div>
   </footer>
 
-<script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
