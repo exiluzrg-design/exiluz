@@ -7,20 +7,18 @@
 
   <!-- base general -->
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- encabezado + top banner (estilos) -->
+  <!-- encabezado + top banner iguales al index -->
   <link rel="stylesheet" href="assets/css/header-banner.css">
-
   <!-- estilos solo legales -->
   <link rel="stylesheet" href="assets/css/legal.css">
 
-  <!-- 💡 HEADER+BANNER inyectado por JS, 1 sola fuente -->
-  <script src="assets/js/header-banner.js" defer></script>
+  <!-- header + banner inyectados por JS -->
+  <script src="assets/js/include-header.js" defer></script>
 </head>
 
 <body class="page--legal">
 
-  <!-- AQUÍ se inyectan banner + header -->
+  <!-- ACA SE INYECTA BANNER + HEADER -->
   <div id="header-root"></div>
 
   <!-- ===================== CONTENIDO LEGAL ===================== -->
@@ -50,7 +48,7 @@
     <ul>
       <li>CABA / GBA → 1 a 3 días hábiles</li>
       <li>Bs As / Sta Fe / Córdoba / Mendoza → 3 a 5 días hábiles</li>
-      <li>Resto del país → 4 a 8 días hábiles</li>
+      <li>Resto país → 4 a 8 días hábiles</li>
       <li>Ushuaia → 12 a 15 días hábiles</li>
     </ul>
 
@@ -75,7 +73,7 @@
 
   </main>
 
-  <!-- Footer igual al index -->
+  <!-- Footer igual al index simple -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <small>© <span id="year"></span> Exiluz. Todos los derechos reservados.</small>
