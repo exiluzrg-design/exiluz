@@ -1,0 +1,12 @@
+{
+  "name": "exiluz",
+  "version": "1.0.0",
+  "description": "Sitio Exiluz - Llavero Elijo Creer",
+  "scripts": {
+    "build": "",
+    "start": "node"
+  },
+  "dependencies": {
+    "mercadopago": "^1.5.16"
+  }
+}
