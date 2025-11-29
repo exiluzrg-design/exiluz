@@ -125,6 +125,26 @@
       color: #ffffff;
       font-size: 14px;
     }
+
+    /* ==== LINKS LEGALES FOOTER ==== */
+    .footer-legal-links {
+      margin-top: 14px;
+      display: flex;
+      gap: 48px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-legal-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .footer-legal-links a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body class="page--home">
@@ -310,6 +330,15 @@
     <div class="container footer-inner">
       <small>© <span id="year"></span> Exiluz. Todos los derechos reservados.</small>
       <small class="footer-powered">Hecho con pasión en Argentina.</small>
+
+      <!-- Links legales -->
+      <nav class="footer-legal-links" aria-label="Información legal">
+        <a href="faq.html">Preguntas Frecuentes</a>
+        <a href="politica-devolucion.html">Política de Devolución</a>
+        <a href="politica-envio.html">Política de Envío</a>
+        <a href="politica-privacidad.html">Política de Privacidad</a>
+        <a href="terminos-servicio.html">Términos de Servicio</a>
+      </nav>
     </div>
   </footer>
 
