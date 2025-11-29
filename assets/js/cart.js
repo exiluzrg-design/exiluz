@@ -67,10 +67,13 @@ function renderCart() {
     subtotal += rowSubtotal;
     totalQty += item.quantity;
 
+    // 🔥 Fallback de imagen corregido: usa tu foto real p1.webp
+    const imageSrc = item.image || "assets/img/banners/p1.webp";
+
     row.innerHTML = `
       <div class="cart-item-main">
         <div class="cart-item-img">
-          <img src="${item.image || "assets/img/llavero-elijo-creer.jpg"}" alt="${item.name}" />
+          <img src="${imageSrc}" alt="${item.name}" />
         </div>
         <div>
           <div class="cart-item-title">${item.name}</div>
@@ -100,44 +103,49 @@ function renderCart() {
   const total = subtotal - discount;
 
   if (subtotalEl) subtotalEl.textContent = formatCurrency(subtotal);
-  if (discountEl) discountEl.textContent = discount ? "-" + formatCurrency(discount) : "-$0";
+  if (discountEl)
+    discountEl.textContent = discount ? "-" + formatCurrency(discount) : "-$0";
   if (totalEl) totalEl.textContent = formatCurrency(total);
 
   updateCartCount();
 
-  // Eventos de +, -, quitar
-  listEl.addEventListener("click", (ev) => {
-    const btn = ev.target;
+  // Eventos de +, -, quitar (delegados)
+  listEl.addEventListener(
+    "click",
+    (ev) => {
+      const btn = ev.target;
 
-    if (btn.classList.contains("btn-inc") || btn.classList.contains("btn-dec")) {
-      const wrapper = btn.closest(".cart-qty");
-      const id = wrapper.dataset.id;
-      const cart = readCart();
-      const item = cart[id];
-      if (!item) return;
+      if (btn.classList.contains("btn-inc") || btn.classList.contains("btn-dec")) {
+        const wrapper = btn.closest(".cart-qty");
+        const id = wrapper.dataset.id;
+        const cart = readCart();
+        const item = cart[id];
+        if (!item) return;
 
-      if (btn.classList.contains("btn-inc")) {
-        item.quantity += 1;
-      } else {
-        item.quantity -= 1;
-        if (item.quantity <= 0) {
-          delete cart[id];
+        if (btn.classList.contains("btn-inc")) {
+          item.quantity += 1;
+        } else {
+          item.quantity -= 1;
+          if (item.quantity <= 0) {
+            delete cart[id];
+          }
         }
+
+        writeCart(cart);
+        renderCart();
+        return;
       }
 
-      writeCart(cart);
-      renderCart();
-      return;
-    }
-
-    if (btn.classList.contains("cart-item-remove")) {
-      const id = btn.dataset.id;
-      const cart = readCart();
-      delete cart[id];
-      writeCart(cart);
-      renderCart();
-    }
-  }, { once: true });
+      if (btn.classList.contains("cart-item-remove")) {
+        const id = btn.dataset.id;
+        const cart = readCart();
+        delete cart[id];
+        writeCart(cart);
+        renderCart();
+      }
+    },
+    { once: true }
+  );
 }
 
 async function handleCheckout() {
@@ -180,7 +188,9 @@ async function handleCheckout() {
     }
   } catch (err) {
     console.error(err);
-    if (msgEl) msgEl.textContent = "No pudimos iniciar el pago. Intentalo de nuevo en unos minutos.";
+    if (msgEl)
+      msgEl.textContent =
+        "No pudimos iniciar el pago. Intentalo de nuevo en unos minutos.";
   }
 }
 
