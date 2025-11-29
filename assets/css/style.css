@@ -1,3 +1,11 @@
+/* ===== Fuente Questrial para el banner ===== */
+@font-face {
+  font-family: 'Questrial';
+  src: url('../fonts/Questrial-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* ===== Banner superior con texto en movimiento ===== */
 .top-banner {
   position: sticky;
@@ -15,11 +23,12 @@
 }
 
 .top-banner span {
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  font-family: 'Questrial', sans-serif;
+  font-size: 14px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #ffffff;
-  padding: 6px 24px;
+  padding: 8px 32px;
 }
 
 @keyframes banner-scroll {
@@ -29,8 +38,8 @@
 
 @media (max-width: 640px) {
   .top-banner span {
-    font-size: 11px;
-    padding: 6px 16px;
+    font-size: 12px;
+    padding: 6px 20px;
   }
 }
 
