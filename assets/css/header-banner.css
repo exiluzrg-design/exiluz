@@ -1,0 +1,141 @@
+/* =========================================================
+   FUENTE BANNER — Questrial
+   ========================================================= */
+@font-face {
+  font-family: 'Questrial';
+  src: url('../fonts/Questrial-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* =========================================================
+   BANNER SUPERIOR SCROLLING (TICKER)
+   ========================================================= */
+.top-banner {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  background: #00CCFF;
+  overflow: hidden;
+
+  /* Altura Desktop */
+  height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+.top-banner-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: banner-scroll 16s linear infinite;
+}
+
+/* Texto del banner */
+.top-banner span {
+  font-family: 'Questrial', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding-right: 3rem;
+}
+
+@keyframes banner-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Opcional: ajuste mobile si querés más bajo el banner
+@media (max-width: 768px) {
+  .top-banner {
+    height: 32px;
+  }
+  .top-banner span {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+}
+*/
+
+/* =========================================================
+   HEADER: HAMBURGUESA IZQ, LOGO CENTRO, CARRITO DER
+   ========================================================= */
+
+.site-header {
+  border-bottom: 1px solid #181b20;
+  background: #050607;
+}
+
+.header-inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  padding: 16px 0;
+}
+
+/* Logo centrado */
+.logo {
+  justify-self: center;
+}
+
+.logo a {
+  display: inline-block;
+}
+
+.logo-img {
+  height: 56px;
+  width: auto;
+  display: block;
+}
+
+/* Botón hamburguesa */
+.nav-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 8px;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: #ffffff;
+}
+
+/* Carrito a la derecha */
+.cart-link {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+}
+
+.cart-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: #00ccff;
+  color: #000;
+  font-size: 10px;
+  border-radius: 999px;
+  padding: 2px 5px;
+  min-width: 16px;
+  text-align: center;
+}
