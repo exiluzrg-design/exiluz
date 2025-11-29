@@ -81,7 +81,7 @@ html, body {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #111315;          /* antes #050607 */
+  background: #0b0e13;          /* UNIFICADO */
   color: #f5f5f5;
 }
 
@@ -100,7 +100,7 @@ body {
   top: 38px;           /* altura del banner en desktop */
   z-index: 9998;
   border-bottom: 1px solid #181b20;
-  background: #111315; /* antes #050607 */
+  background: #0b0e13; /* UNIFICADO */
 }
 
 .header-inner {
@@ -296,7 +296,7 @@ body {
    ========================================================= */
 .section-intro {
   padding: 70px 0 65px;
-  background: #111315; /* antes #050607 */
+  background: #0b0e13; /* UNIFICADO */
   text-align: center;
 }
 
@@ -337,7 +337,7 @@ body {
    ========================================================= */
 .section-media {
   padding: 40px 0 60px;
-  background: #111315; /* antes #050607 */
+  background: #0b0e13; /* UNIFICADO */
 }
 
 /* Desktop: video y torre, misma altura total */
@@ -378,7 +378,7 @@ body {
   border-radius: 16px;
   flex: 1 1 0;           /* Cada una = 1/3 de la altura de la galería */
   object-fit: contain;   /* No recorta texto ni bordes */
-  background: #111315;   /* antes #050607 — “letterbox” del mismo tono */
+  background: #0b0e13;   /* UNIFICADO, mismo tono que el fondo */
   padding: 2px;
 }
 
@@ -436,7 +436,7 @@ body {
    ========================================================= */
 .product-section {
   padding: 60px 0 80px;
-  background: #111315; /* antes #050607 */
+  background: #0b0e13; /* UNIFICADO */
 }
 
 .product-inner {
