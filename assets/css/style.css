@@ -332,42 +332,41 @@ body {
   background: #050607;
 }
 
-/* 🖥 Desktop: más espacio para las imágenes que para el video */
+/* Desktop: video un poco más chico que la torre */
 .media-wrap {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 32px;
-  align-items: flex-start;
+  align-items: center;
 }
 
-/* Video vertical como tarjeta más angosta */
+/* Video vertical tipo “celular” */
 .media-video {
   width: 100%;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .media-video iframe {
   width: 100%;
-  max-width: 360px;        /* 👉 límite de ancho del video */
-  aspect-ratio: 9 / 16;    /* formato vertical */
-  border-radius: 12px;
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
   border: none;
-  display: block;
   background: #000;
 }
 
-/* Torre de 3 banners a la derecha (desktop) */
+/* Torre de 3 banners a la derecha */
 .media-gallery {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
 }
 
 .media-gallery img {
   width: 100%;
   display: block;
-  border-radius: 12px;
+  border-radius: 16px;
 }
 
 /* =========================================================
@@ -651,11 +650,11 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .media-gallery {
-    margin-top: 16px;
-  }
-
   .media-video iframe {
     max-width: 100%;
+  }
+
+  .media-gallery {
+    margin-top: 16px;
   }
 }
