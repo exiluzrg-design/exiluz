@@ -57,6 +57,11 @@
     padding: 0 32px;
     letter-spacing: 0.16em;
   }
+
+  /* Header pegado debajo del banner en mobile */
+  .site-header {
+    top: 46px;
+  }
 }
 
 /* =========================================================
@@ -91,6 +96,9 @@ body {
    HEADER
    ========================================================= */
 .site-header {
+  position: sticky;
+  top: 38px;           /* altura del banner en desktop */
+  z-index: 9998;
   border-bottom: 1px solid #181b20;
   background: #050607;
 }
