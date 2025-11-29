@@ -126,6 +126,31 @@ body {
   text-decoration: underline;
 }
 
+/* ===== Banners portada desktop / mobile ===== */
+.hero-banner {
+  width: 100%;
+  max-width: 1180px;
+  margin: 16px auto 0;
+  padding: 0 16px;
+}
+
+.hero-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
+}
+
+/* por defecto se ve desktop y se oculta mobile */
+.only-desktop {
+  display: block;
+}
+
+.only-mobile {
+  display: none;
+}
+
 /* ===== Hero ===== */
 .hero {
   padding: 40px 0 60px;
@@ -438,6 +463,15 @@ body {
 
 /* ===== Responsivo ===== */
 @media (max-width: 900px) {
+  /* acá invertimos: solo mobile */
+  .only-desktop {
+    display: none;
+  }
+
+  .only-mobile {
+    display: block;
+  }
+
   .hero-inner {
     grid-template-columns: 1fr;
   }
