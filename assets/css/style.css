@@ -332,23 +332,29 @@ body {
   background: #050607;
 }
 
+/* 🖥 Desktop: más espacio para las imágenes que para el video */
 .media-wrap {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 32px;
-  align-items: stretch;
+  align-items: flex-start;
 }
 
-/* Video vertical responsive */
+/* Video vertical como tarjeta más angosta */
 .media-video {
   width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .media-video iframe {
   width: 100%;
-  aspect-ratio: 9 / 16; /* vertical */
+  max-width: 360px;        /* 👉 límite de ancho del video */
+  aspect-ratio: 9 / 16;    /* formato vertical */
   border-radius: 12px;
   border: none;
+  display: block;
+  background: #000;
 }
 
 /* Torre de 3 banners a la derecha (desktop) */
@@ -647,5 +653,9 @@ body {
 
   .media-gallery {
     margin-top: 16px;
+  }
+
+  .media-video iframe {
+    max-width: 100%;
   }
 }
