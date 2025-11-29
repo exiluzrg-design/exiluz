@@ -186,23 +186,27 @@ body {
    PORTADAS HERO DESKTOP / MOBILE
    ========================================================= */
 
-/* El contenedor de la portada ocupa todo el ancho de la ventana */
+/* Por defecto: ver solo desktop */
+.only-desktop { display: block; }
+.only-mobile  { display: none; }
+
+/* Contenedor full width para ambas versiones */
 .hero-banner {
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-/* Desktop: la imagen se ajusta automáticamente al ancho del monitor */
+/* Desktop hero: se ajusta al ancho del monitor, alto automático */
 .hero-banner.only-desktop img {
   display: block;
   width: 100%;
-  height: auto;          /* altura automática según la imagen */
+  height: auto;
   border-radius: 0;
   box-shadow: none;
 }
 
-/* Mobile: usa la portada mobile, también full width */
+/* Mobile hero: imagen mobile full width */
 .hero-banner.only-mobile img {
   display: block;
   width: 100%;
@@ -522,7 +526,7 @@ body {
    ========================================================= */
 @media (max-width: 900px) {
   .only-desktop { display: none; }
-  .only-mobile { display: block; }
+  .only-mobile  { display: block; }
 
   .hero-inner {
     grid-template-columns: 1fr;
