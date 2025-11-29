@@ -1,4 +1,6 @@
-/* ===== Fuente Questrial para el banner ===== */
+/* =========================================================
+   FUENTE BANNER — Questrial
+   ========================================================= */
 @font-face {
   font-family: 'Questrial';
   src: url('../fonts/Questrial-Regular.ttf') format('truetype');
@@ -6,7 +8,9 @@
   font-style: normal;
 }
 
-/* ===== Banner superior con texto en movimiento ===== */
+/* =========================================================
+   BANNER SUPERIOR CON TEXTO EN MOVIMIENTO
+   ========================================================= */
 .top-banner {
   position: sticky;
   top: 0;
@@ -19,16 +23,16 @@
 .top-banner-track {
   display: inline-flex;
   white-space: nowrap;
-  animation: banner-scroll 18s linear infinite;
+  animation: banner-scroll 16s linear infinite;
 }
 
 .top-banner span {
   font-family: 'Questrial', sans-serif;
-  font-size: 14px;
-  letter-spacing: 0.18em;
+  font-size: 22px;             /* 👈 GRANDE Y PROTAGONISTA EN DESKTOP */
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: #ffffff;
-  padding: 8px 32px;
+  padding: 16px 60px;          /* 👈 más alto + más aire */
 }
 
 @keyframes banner-scroll {
@@ -36,15 +40,18 @@
   100% { transform: translateX(-50%); }
 }
 
+/* ===== Vista Mobile ===== */
 @media (max-width: 640px) {
   .top-banner span {
-    font-size: 12px;
-    padding: 6px 20px;
+    font-size: 14px;
+    padding: 10px 28px;
+    letter-spacing: 0.16em;
   }
 }
 
-
-/* ===== Reset mínimo ===== */
+/* =========================================================
+   RESET Y BASE DEL SITIO
+   ========================================================= */
 *,
 *::before,
 *::after {
@@ -53,9 +60,7 @@
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-}
+html, body { height: 100%; }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -63,7 +68,6 @@ body {
   color: #f5f5f5;
 }
 
-/* ===== Layout base ===== */
 .container {
   width: 100%;
   max-width: 1180px;
@@ -71,7 +75,9 @@ body {
   padding: 0 16px;
 }
 
-/* ===== Header ===== */
+/* =========================================================
+   HEADER
+   ========================================================= */
 .site-header {
   border-bottom: 1px solid #181b20;
   background: #050607;
@@ -104,13 +110,9 @@ body {
   font-size: 14px;
 }
 
-.main-nav a:hover {
-  color: #00c3ff;
-}
+.main-nav a:hover { color: #00c3ff; }
 
-.cart-link {
-  position: relative;
-}
+.cart-link { position: relative; }
 
 .cart-count {
   position: absolute;
@@ -124,7 +126,9 @@ body {
   padding: 2px 6px;
 }
 
-/* ===== Botones ===== */
+/* =========================================================
+   BOTONES
+   ========================================================= */
 .btn {
   border-radius: 4px;
   border: none;
@@ -144,9 +148,7 @@ body {
   color: #050607;
 }
 
-.btn-primary:hover {
-  background: #00c3ff;
-}
+.btn-primary:hover { background: #00c3ff; }
 
 .btn-secondary {
   border: 1px solid #ffffff33;
@@ -159,20 +161,18 @@ body {
   color: #00c3ff;
 }
 
-.btn-full {
-  width: 100%;
-}
+.btn-full { width: 100%; }
 
 .link-inline {
   color: #00c3ff;
   text-decoration: none;
 }
 
-.link-inline:hover {
-  text-decoration: underline;
-}
+.link-inline:hover { text-decoration: underline; }
 
-/* ===== Banners portada desktop / mobile ===== */
+/* =========================================================
+   HERO PORTADAS
+   ========================================================= */
 .hero-banner {
   width: 100%;
   max-width: 1180px;
@@ -188,17 +188,17 @@ body {
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5);
 }
 
-.only-desktop { display: block; }
-.only-mobile { display: none; }
+.only-desktop{display:block;}
+.only-mobile {display:none;}
 
-/* ===== Hero ===== */
-.hero {
-  padding: 40px 0 60px;
-}
+/* =========================================================
+   HERO PRINCIPAL
+   ========================================================= */
+.hero { padding: 40px 0 60px; }
 
 .hero-inner {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0,1.1fr) minmax(0,1fr);
   gap: 48px;
   align-items: center;
 }
@@ -207,88 +207,63 @@ body {
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: #9ca3af;
-  margin-bottom: 8px;
+  color:#9ca3af;
+  margin-bottom:8px;
 }
 
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-
-.hero h1 .accent {
-  color: #00c3ff;
-}
+.hero h1 { font-size: 32px; margin-bottom:12px; }
+.hero h1 .accent { color:#00c3ff; }
 
 .hero-text {
-  color: #cbd2e1;
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 16px;
+  color:#cbd2e1;
+  font-size:15px;
+  line-height:1.6;
+  margin-bottom:16px;
 }
 
-.hero-benefits {
-  list-style: none;
-  margin-bottom: 20px;
-}
-
-.hero-benefits li {
-  font-size: 14px;
-  color: #e5e7eb;
-  margin-bottom: 4px;
-}
+.hero-benefits { list-style:none; margin-bottom:20px; }
+.hero-benefits li { font-size:14px; color:#e5e7eb; margin-bottom:4px; }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 12px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:12px;
 }
 
-.hero-price {
-  font-size: 14px;
-  color: #9ca3af;
-}
+.hero-price { font-size:14px; color:#9ca3af; }
+.price-main { font-size:22px;font-weight:700;color:#ffffff;margin-right:8px; }
 
-.price-main {
-  font-size: 22px;
-  font-weight: 700;
-  color: #ffffff;
-  margin-right: 8px;
-}
-
-/* ===== Product card ===== */
-.hero-product {
-  display: flex;
-  justify-content: flex-end;
-}
+/* =========================================================
+   PRODUCT CARD
+   ========================================================= */
+.hero-product { display:flex; justify-content:flex-end; }
 
 .product-card {
-  background: #0b0e13;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid #111827;
-  max-width: 360px;
-  width: 100%;
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+  background:#0b0e13;
+  border-radius:8px;
+  overflow:hidden;
+  border:1px solid #111827;
+  max-width:360px;
+  width:100%;
+  box-shadow:0 18px 45px rgba(0,0,0,0.45);
 }
 
-.product-image img {
-  width: 100%;
-  display: block;
-}
+.product-image img { width:100%;display:block; }
 
-.product-body { padding: 16px; }
-.product-title { font-size: 18px; margin-bottom: 2px;}
-.product-subtitle { font-size: 13px;color:#9ca3af;margin-bottom:10px;}
-.product-shipping { font-size:13px;color:#00c3ff;}
-.product-bulk {font-size:12px;color:#9ca3af;margin-bottom:14px;}
+.product-body{padding:16px;}
+.product-title{font-size:18px;margin-bottom:2px;}
+.product-subtitle{font-size:13px;color:#9ca3af;margin-bottom:10px;}
+.product-shipping{font-size:13px;color:#00c3ff;}
+.product-bulk{font-size:12px;color:#9ca3af;margin-bottom:14px;}
 
-/* ===== Sección features ===== */
-.section { padding:36px 0;}
-.section--features { border-top:1px solid #111827; }
+/* =========================================================
+   FEATURES
+   ========================================================= */
+.section{padding:36px 0;}
+.section--features{border-top:1px solid #111827;}
 
-.features-grid {
+.features-grid{
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:24px;
@@ -297,41 +272,50 @@ body {
 .feature h3{font-size:16px;margin-bottom:8px;}
 .feature p{font-size:14px;color:#d1d5db;}
 
-/* ===== Footer ===== */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 .site-footer {
-  border-top: 1px solid #111827;
-  padding: 14px 0;
-  font-size: 12px;
-  color: #9ca3af;
+  border-top:1px solid #111827;
+  padding:14px 0;
+  font-size:12px;
+  color:#9ca3af;
 }
 
 .footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
 }
 
-/* ===== Carrito ===== */
-.cart-main {padding:32px 0 48px;}
+/* =========================================================
+   CARRITO
+   ========================================================= */
+.cart-main{padding:32px 0 48px;}
 .section--cart h1{margin-bottom:18px;font-size:22px;}
 
-.cart-layout {
+.cart-layout{
   display:grid;
   grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);
   gap:24px;
 }
 
-.cart-header-row, .cart-item{
+.cart-header-row,
+.cart-item{
   display:grid;
   grid-template-columns:3fr 1fr 1fr 1fr;
 }
 
-.cart-item{align-items:center;padding:10px 0;border-top:1px solid #111827;}
+.cart-item{
+  align-items:center;
+  padding:10px 0;
+  border-top:1px solid #111827;
+}
+
 .cart-item:last-child{border-bottom:1px solid #111827;}
 
 .cart-item-main{display:flex;gap:12px;align-items:center;}
 .cart-item-img{width:70px;height:70px;background:#111827;border-radius:4px;overflow:hidden;}
-
 .cart-item-img img{width:100%;height:100%;object-fit:cover;}
 
 .cart-item-title{font-size:14px;margin-bottom:4px;}
@@ -340,13 +324,15 @@ body {
 
 .cart-qty{display:flex;align-items:center;justify-content:center;gap:6px;}
 .cart-qty button{width:22px;height:22px;border-radius:999px;border:1px solid #4b5563;background:transparent;color:#e5e7eb;cursor:pointer;font-size:14px;}
-
 .cart-qty span{min-width:18px;text-align:center;font-size:14px;}
 
 .cart-price,.cart-subtotal{font-size:14px;text-align:right;}
 
 .cart-summary{
-  background:#0b0e13;border-radius:8px;padding:18px;border:1px solid #111827;
+  background:#0b0e13;
+  border-radius:8px;
+  padding:18px;
+  border:1px solid #111827;
 }
 
 .cart-summary h2{font-size:18px;margin-bottom:12px;}
@@ -356,8 +342,10 @@ body {
 .checkout-message{margin-top:10px;font-size:13px;color:#9ca3af;}
 .cart-empty{padding:30px 0;font-size:14px;}
 
-/* ===== Responsivo ===== */
-@media (max-width:900px){
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media(max-width:900px){
   .only-desktop{display:none;}
   .only-mobile{display:block;}
   .hero-inner{grid-template-columns:1fr;}
