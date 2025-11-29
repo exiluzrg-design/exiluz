@@ -339,7 +339,7 @@ body {
   align-items: stretch; /* Video y galería misma altura */
 }
 
-/* Video vertical tipo “celular” — achicado 30% aprox */
+/* Video horizontal 16:9 */
 .media-video {
   flex: 0 0 45%; /* antes 65% */
   display: flex;
@@ -348,7 +348,7 @@ body {
 
 .media-video iframe {
   width: 100%;
-  aspect-ratio: 9 / 16;
+  aspect-ratio: 16 / 9;   /* 🔁 CAMBIO CLAVE: antes 9 / 16 */
   border-radius: 16px;
   border: none;
   background: #000;
