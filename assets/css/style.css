@@ -81,7 +81,7 @@ html, body {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #0b0e13;          /* UNIFICADO */
+  background: #111518;      /* 💡 FONDO GENERAL UNIFICADO */
   color: #f5f5f5;
 }
 
@@ -100,7 +100,7 @@ body {
   top: 38px;           /* altura del banner en desktop */
   z-index: 9998;
   border-bottom: 1px solid #181b20;
-  background: #0b0e13; /* UNIFICADO */
+  background: #111518; /* 💡 MISMO FONDO QUE EL BODY */
 }
 
 .header-inner {
@@ -296,7 +296,7 @@ body {
    ========================================================= */
 .section-intro {
   padding: 70px 0 65px;
-  background: #0b0e13; /* UNIFICADO */
+  background: #111518; /* 💡 UNIFICADO */
   text-align: center;
 }
 
@@ -337,7 +337,7 @@ body {
    ========================================================= */
 .section-media {
   padding: 40px 0 60px;
-  background: #0b0e13; /* UNIFICADO */
+  background: #111518; /* 💡 UNIFICADO */
 }
 
 /* Desktop: video y torre, misma altura total */
@@ -356,7 +356,7 @@ body {
 
 .media-video iframe {
   width: 100%;
-  aspect-ratio: 16 / 9;   /* 🔁 CAMBIO CLAVE: antes 9 / 16 */
+  aspect-ratio: 16 / 9;   /* antes 9 / 16 */
   border-radius: 16px;
   border: none;
   background: #000;
@@ -378,7 +378,7 @@ body {
   border-radius: 16px;
   flex: 1 1 0;           /* Cada una = 1/3 de la altura de la galería */
   object-fit: contain;   /* No recorta texto ni bordes */
-  background: #0b0e13;   /* UNIFICADO, mismo tono que el fondo */
+  background: #111518;   /* 💡 UNIFICADO CON EL FONDO */
   padding: 2px;
 }
 
@@ -391,7 +391,7 @@ body {
 }
 
 .product-card {
-  background: #0b0e13;
+  background: #111518;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid #111827;
@@ -436,7 +436,7 @@ body {
    ========================================================= */
 .product-section {
   padding: 60px 0 80px;
-  background: #0b0e13; /* UNIFICADO */
+  background: #111518; /* 💡 UNIFICADO */
 }
 
 .product-inner {
@@ -541,7 +541,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 16px;
-  background: #0b0e13;
+  background: #111518;
   border-radius: 999px;
   padding: 10px 18px;
   margin: 18px 0 14px;
@@ -744,7 +744,7 @@ body {
 }
 
 .cart-summary {
-  background: #0b0e13;
+  background: #111518;
   border-radius: 8px;
   padding: 18px;
   border: 1px solid #111827;
