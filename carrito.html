@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Carrito de compras - Exiluz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body class="page--cart">
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="logo">
+        <a href="index.html">Exiluz</a>
+      </div>
+      <nav class="main-nav">
+        <a href="index.html">Inicio</a>
+        <a href="carrito.html" class="cart-link">
+          Carrito
+          <span id="cart-count" class="cart-count">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="cart-main">
+    <section class="section section--cart container">
+      <h1>Carrito de compras</h1>
+
+      <div id="cart-empty" class="cart-empty">
+        Tu carrito está vacío.  
+        <a href="index.html" class="link-inline">Seguir comprando</a>
+      </div>
+
+      <div id="cart-content" class="cart-layout">
+        <div class="cart-items">
+          <div class="cart-header-row">
+            <span class="th-producto">Producto</span>
+            <span class="th-cantidad">Cantidad</span>
+            <span class="th-precio">Precio</span>
+            <span class="th-subtotal">Subtotal</span>
+          </div>
+          <div id="cart-items-container"></div>
+        </div>
+
+        <aside class="cart-summary">
+          <h2>Resumen</h2>
+          <div class="summary-row">
+            <span>Subtotal:</span>
+            <span id="summary-subtotal">$0</span>
+          </div>
+          <div class="summary-row">
+            <span>Descuento:</span>
+            <span id="summary-discount">-$0</span>
+          </div>
+          <div class="summary-row">
+            <span>Envío:</span>
+            <span>Gratis</span>
+          </div>
+          <div class="summary-total">
+            <span>Total:</span>
+            <span id="summary-total">$0</span>
+          </div>
+          <p class="summary-note">
+            15% OFF comprando 2 o más unidades del llavero Elijo Creer.
+          </p>
+          <button id="btn-checkout" class="btn btn-primary btn-full">
+            Iniciar compra
+          </button>
+          <p id="checkout-message" class="checkout-message"></p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> Exiluz. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <script src="assets/js/cart.js"></script>
+</body>
+</html>
