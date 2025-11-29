@@ -11,44 +11,15 @@
   <link rel="stylesheet" href="assets/css/header-banner.css" />
   <!-- estilos específicos de páginas legales -->
   <link rel="stylesheet" href="assets/css/legal.css" />
+
+  <!-- INYECTA banner + header desde UN SOLO JS -->
+  <script src="assets/js/header-banner.js" defer></script>
 </head>
 
 <body class="page--legal">
 
-  <!-- Banner superior (igual que index) -->
-  <div class="top-banner">
-    <div class="top-banner-track">
-      <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-      <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-      <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-      <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-    </div>
-  </div>
-
-  <!-- HEADER igual que index -->
-  <header class="site-header">
-    <div class="container header-inner">
-
-      <!-- menú hamburguesa -->
-      <button class="nav-toggle" type="button">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- Logo centrado -->
-      <div class="logo">
-        <a href="index.html">
-          <img src="assets/img/banners/logo encabezado.webp" alt="Exiluz" class="logo-img">
-        </a>
-      </div>
-
-      <!-- carrito -->
-      <a href="carrito.html" class="cart-link">
-        <span class="cart-icon">🛒</span>
-        <span id="cart-count" class="cart-count">0</span>
-      </a>
-
-    </div>
-  </header>
+  <!-- 📌 Acá se pinta AUTOMÁTICAMENTE el banner + header -->
+  <div id="header-root"></div>
 
   <!-- ===================== CONTENIDO LEGAL ===================== -->
   <main class="legal-main container">
