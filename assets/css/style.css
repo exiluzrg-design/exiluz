@@ -216,7 +216,7 @@ body {
 }
 
 /* =========================================================
-   HERO
+   HERO (YA NO SE USA EN INDEX, PERO LO DEJO)
    ========================================================= */
 .hero {
   padding: 40px 0 60px;
@@ -375,7 +375,7 @@ body {
 }
 
 /* =========================================================
-   PRODUCT CARD
+   PRODUCT CARD (YA CASI NO SE USA, QUEDA POR SI LO RECICLÁS)
    ========================================================= */
 .hero-product {
   display: flex;
@@ -421,6 +421,174 @@ body {
   font-size: 12px;
   color: #9ca3af;
   margin-bottom: 14px;
+}
+
+/* =========================================================
+   PRODUCTO DESTACADO (NUEVO LAYOUT TIPO TIENDA)
+   ========================================================= */
+.product-section {
+  padding: 60px 0 80px;
+  background: #050607;
+}
+
+.product-inner {
+  display: flex;
+  gap: 45px;
+  align-items: flex-start;
+}
+
+/* Columna izquierda: foto / galería */
+.product-gallery {
+  position: relative;
+  flex: 0 0 50%;
+}
+
+.product-image-main img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  background: #000;
+}
+
+/* Píldora “Envío gratis” */
+.product-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: #00c3ff;
+  color: #050607;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+
+/* Badge -20% abajo a la izquierda */
+.product-discount-badge {
+  position: absolute;
+  left: 14px;
+  bottom: 16px;
+  background: #ffffff;
+  color: #000000;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+
+/* Indicador 1 / 3 */
+.gallery-nav {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* Columna derecha: info */
+.product-info {
+  flex: 1;
+}
+
+.product-info h1 {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.price-area {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 800;
+  color: #ffffff;
+}
+
+.old-price {
+  font-size: 18px;
+  color: #9ca3af;
+  text-decoration: line-through;
+}
+
+.promo-text {
+  display: inline-block;
+  margin-top: 2px;
+  font-size: 13px;
+  color: #00c3ff;
+}
+
+.promo-green {
+  margin-top: 4px;
+  font-size: 14px;
+  color: #4ade80;
+}
+
+/* Cantidad */
+.qty-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: #0b0e13;
+  border-radius: 999px;
+  padding: 10px 18px;
+  margin: 18px 0 14px;
+}
+
+.qty-box button {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.qty-box span {
+  min-width: 16px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Botón principal */
+.add-cart {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 16px 0;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  background: #00a8ff;
+  color: #050607;
+  margin-bottom: 18px;
+}
+
+.add-cart:hover {
+  background: #00c3ff;
+}
+
+/* Descripción y bullets */
+.desc {
+  font-size: 15px;
+  color: #e5e7eb;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.details {
+  list-style: disc;
+  padding-left: 18px;
+}
+
+.details li {
+  margin-bottom: 4px;
+  font-size: 14px;
+  color: #e5e7eb;
 }
 
 /* =========================================================
@@ -673,5 +841,19 @@ body {
     height: auto;
     object-fit: contain;
     padding: 0;
+  }
+
+  /* PRODUCTO DESTACADO stack en mobile */
+  .product-inner {
+    flex-direction: column;
+  }
+
+  .product-gallery,
+  .product-info {
+    flex: 1 1 auto;
+  }
+
+  .product-info h1 {
+    margin-top: 18px;
   }
 }
