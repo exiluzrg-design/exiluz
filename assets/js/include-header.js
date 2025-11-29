@@ -8,10 +8,10 @@
       <!-- Banner celeste con texto en movimiento -->
       <div class="top-banner">
         <div class="top-banner-track">
-          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
-          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON •</span>
+          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
+          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
+          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
+          <span>+ 1000 ARGENTINOS YA NOS ELIGIERON </span>
         </div>
       </div>
 
