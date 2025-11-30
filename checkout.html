@@ -20,7 +20,7 @@
 
   <main class="cart-main container">
 
-    <!-- Barra de progreso simple -->
+    <!-- Barra de pasos -->
     <div class="checkout-steps">
       <span class="step step--done">Carrito</span>
       <span class="step step--current">Entrega</span>
@@ -31,10 +31,9 @@
 
     <div class="cart-layout">
 
-      <!-- 📨 DATOS DE CONTACTO + ENTREGA -->
+      <!-- 📨 DATOS DE CONTACTO + ENTREGa (CP) -->
       <section class="checkout-form">
 
-        <!-- Datos de contacto -->
         <h2>Datos de contacto</h2>
 
         <form id="checkout-contact-form" class="checkout-form-inner">
@@ -54,7 +53,6 @@
             <span>Quiero recibir ofertas y novedades por e-mail</span>
           </label>
 
-          <!-- Entrega -->
           <h2>Entrega</h2>
 
           <label class="form-label">
@@ -67,7 +65,6 @@
               class="form-input"/>
           </label>
 
-          <!-- Botón continuar (todavía sin MP, eso lo hacemos después) -->
           <button type="submit" class="btn btn-primary btn-full">
             Continuar
           </button>
@@ -76,7 +73,7 @@
         </form>
       </section>
 
-      <!-- 🧾 RESUMEN (placeholder, después lo conectamos al carrito vía JS) -->
+      <!-- 🧾 RESUMEN (igual estructura que carrito) -->
       <aside class="cart-summary">
         <h2>Tu pedido</h2>
 
@@ -115,13 +112,32 @@
   </footer>
 
   <script>
-    // ➜ Por ahora, solo prevenimos el submit real.
-    //    Después acá vamos a guardar en Supabase y pasar al paso "Pago".
+    // Paso 1: guardar Email + CP y pasar a la pantalla de envío
     document.getElementById('checkout-contact-form')?.addEventListener('submit', function (e) {
       e.preventDefault();
-      // TODO: guardar email + CP + carrito y redirigir al siguiente paso
-      document.getElementById('checkout-contact-message').textContent =
-        'Acá después vamos a guardar los datos y seguir al pago. (lógica pendiente)';
+
+      const form = e.target;
+      const email = form.email.value.trim();
+      const cp = form.cp.value.trim();
+      const newsletter = form.newsletter.checked;
+
+      if (!email || !cp) {
+        document.getElementById('checkout-contact-message').textContent =
+          'Completá el e-mail y el código postal para continuar.';
+        return;
+      }
+
+      // Guardamos temporalmente en localStorage para usar en la próxima pantalla
+      try {
+        localStorage.setItem('exiluz_checkout_email', email);
+        localStorage.setItem('exiluz_checkout_cp', cp);
+        localStorage.setItem('exiluz_checkout_newsletter', newsletter ? '1' : '0');
+      } catch (err) {
+        console.warn('No se pudo usar localStorage', err);
+      }
+
+      // 👉 Ahora vamos al PASO 2 (envio + botón "Continuar para el pago")
+      window.location.href = 'envio.html';
     });
   </script>
 </body>
