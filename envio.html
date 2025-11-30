@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Envío - Exiluz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- estilos globales -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Banner + Header -->
+  <link rel="stylesheet" href="assets/css/header-banner.css" />
+  <script src="assets/js/header-banner.js" defer></script>
+</head>
+
+<body class="page--checkout">
+
+  <div id="header-root"></div>
+
+  <main class="cart-main container">
+
+    <!-- Barra de pasos -->
+    <div class="checkout-steps">
+      <span class="step step--done">Carrito</span>
+      <span class="step step--done">Entrega</span>
+      <span class="step step--current">Pago</span>
+    </div>
+
+    <h1 class="cart-title">Entrega</h1>
+
+    <div class="cart-layout">
+
+      <!-- COLUMNA IZQUIERDA: datos + opciones de envío -->
+      <section class="checkout-form">
+
+        <h2>Datos de contacto</h2>
+
+        <!-- Email ya elegido, como en Tienda Nube -->
+        <div class="checkout-email-box">
+          <span id="envio-email-text">tuemail@ejemplo.com</span>
+          <a href="checkout.html" class="checkout-email-change">Cambiar</a>
+        </div>
+
+        <label class="form-checkbox">
+          <input type="checkbox" id="envio-newsletter"/>
+          <span>Quiero recibir ofertas y novedades por e-mail</span>
+        </label>
+
+        <h2>Entrega</h2>
+
+        <div class="checkout-cp-row">
+          <span>Código Postal: <strong id="envio-cp-text">0000</strong></span>
+          <a href="checkout.html" class="btn btn-outline-sm">Cambiar CP</a>
+        </div>
+
+        <!-- Opciones de envío (simplificadas) -->
+        <form id="envio-form" class="checkout-form-inner">
+
+          <div class="shipping-option">
+            <label>
+              <input type="radio" name="envio" value="correo" checked />
+              <span>
+                <strong>Envío a domicilio</strong> — Envío estándar<br>
+                <small>Llega entre 3 y 7 días hábiles</small>
+              </span>
+            </label>
+            <div class="shipping-price">$0 (promo lanzamiento)</div>
+          </div>
+
+          <div class="shipping-option">
+            <label>
+              <input type="radio" name="envio" value="retiro" />
+              <span>
+                <strong>Retiro en Juguetería Guadis</strong><br>
+                <small>Perito Moreno 238, Río Grande (Centro)<br>
+                Lunes a viernes, de 09:00 a 18:00</small>
+              </span>
+            </label>
+            <div class="shipping-price">Gratis</div>
+          </div>
+
+          <!-- Botón que en el próximo paso va a MP -->
+          <button type="submit" class="btn btn-primary btn-full">
+            Continuar para el pago
+          </button>
+
+          <p id="envio-message" class="checkout-message"></p>
+        </form>
+
+      </section>
+
+      <!-- COLUMNA DERECHA: resumen del pedido -->
+      <aside class="cart-summary">
+        <h2>Resumen</h2>
+
+        <div class="summary-row">
+          <span>Llavero Elijo Creer × 1</span>
+          <span id="envio-item-price">$18.000</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="envio-subtotal">$18.000</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Envío:</span>
+          <span id="envio-shipping">Gratis</span>
+        </div>
+
+        <div class="summary-total">
+          <span>Total:</span>
+          <span id="envio-total">$18.000</span>
+        </div>
+
+        <button class="btn btn-link" type="button">
+          Agregar cupón de descuento
+        </button>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> Exiluz. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <script>
+    // Cargar datos guardados en el paso anterior
+    (function loadCheckoutData() {
+      try {
+        const email = localStorage.getItem('exiluz_checkout_email') || '';
+        const cp = localStorage.getItem('exiluz_checkout_cp') || '';
+        const newsletter = localStorage.getItem('exiluz_checkout_newsletter') === '1';
+
+        if (email) {
+          document.getElementById('envio-email-text').textContent = email;
+        }
+        if (cp) {
+          document.getElementById('envio-cp-text').textContent = cp;
+        }
+        document.getElementById('envio-newsletter').checked = newsletter;
+      } catch (err) {
+        console.warn('No se pudieron leer los datos de checkout', err);
+      }
+    })();
+
+    // Por ahora solo simulamos el envío y después vamos a integrar Mercado Pago
+    document.getElementById('envio-form')?.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const selected = document.querySelector('input[name="envio"]:checked');
+      if (!selected) {
+        document.getElementById('envio-message').textContent =
+          'Elegí una opción de envío para continuar.';
+        return;
+      }
+
+      const modoEnvio = selected.value;
+
+      // TODO: acá después vamos a:
+      // 1) guardar pedido completo (email, cp, envío, carrito) en Supabase
+      // 2) crear preferencia de Mercado Pago
+      // 3) redirigir al init_point
+
+      document.getElementById('envio-message').textContent =
+        'Acá después te vamos a mandar a Mercado Pago con el pedido listo. (lógica pendiente)';
+    });
+  </script>
+</body>
+</html>
