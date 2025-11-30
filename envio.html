@@ -79,7 +79,7 @@
             <div class="shipping-price">Gratis</div>
           </div>
 
-          <!-- Botón que en el próximo paso va a MP -->
+          <!-- 🔵 AHORA SÍ: este botón va a Mercado Pago -->
           <button type="submit" class="btn btn-primary btn-full">
             Continuar para el pago
           </button>
@@ -147,8 +147,8 @@
       }
     })();
 
-    // Por ahora solo simulamos el envío y después vamos a integrar Mercado Pago
-    document.getElementById('envio-form')?.addEventListener('submit', function(e) {
+    // 🔵 AHORA ESTE SUBMIT CREA LA PREFERENCIA Y REDIRIGE A MP
+    document.getElementById('envio-form')?.addEventListener('submit', async function(e) {
       e.preventDefault();
 
       const selected = document.querySelector('input[name="envio"]:checked');
@@ -160,13 +160,64 @@
 
       const modoEnvio = selected.value;
 
-      // TODO: acá después vamos a:
-      // 1) guardar pedido completo (email, cp, envío, carrito) en Supabase
-      // 2) crear preferencia de Mercado Pago
-      // 3) redirigir al init_point
+      let email = '';
+      let cp = '';
+      let newsletter = false;
 
-      document.getElementById('envio-message').textContent =
-        'Acá después te vamos a mandar a Mercado Pago con el pedido listo. (lógica pendiente)';
+      try {
+        email = localStorage.getItem('exiluz_checkout_email') || '';
+        cp = localStorage.getItem('exiluz_checkout_cp') || '';
+        newsletter = localStorage.getItem('exiluz_checkout_newsletter') === '1';
+      } catch (err) {
+        console.warn('No se pudieron leer los datos de checkout', err);
+      }
+
+      if (!email || !cp) {
+        document.getElementById('envio-message').textContent =
+          'Faltan datos de contacto. Volvé al paso anterior.';
+        return;
+      }
+
+      document.getElementById('envio-message').textContent = 'Preparando el pago...';
+
+      try {
+        const resp = await fetch('/api/checkout-mp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email,
+            cp,
+            newsletter,
+            shipping_mode: modoEnvio,
+            // Por ahora 1 unidad fija; después lo conectamos al carrito real
+            items: [
+              {
+                title: 'Llavero Elijo Creer',
+                quantity: 1,
+                unit_price: 18000,
+                currency_id: 'ARS'
+              }
+            ]
+          })
+        });
+
+        if (!resp.ok) {
+          throw new Error('Error al crear la preferencia de pago');
+        }
+
+        const data = await resp.json();
+        if (!data.init_point) {
+          throw new Error('Respuesta inválida del servidor');
+        }
+
+        // 👉 Redirigir a Mercado Pago
+        window.location.href = data.init_point;
+
+      } catch (err) {
+        console.error(err);
+        document.getElementById('envio-message').textContent =
+          'No pudimos iniciar el pago. Probá de nuevo en unos minutos.';
+      }
     });
   </script>
 </body>
