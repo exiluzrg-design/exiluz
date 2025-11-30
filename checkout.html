@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Entrega - Exiluz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- estilos globales -->
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Banner + Header igual que en el resto del sitio -->
+  <link rel="stylesheet" href="assets/css/header-banner.css" />
+  <script src="assets/js/header-banner.js" defer></script>
+</head>
+
+<body class="page--checkout">
+
+  <!-- HEADER + BANNER -->
+  <div id="header-root"></div>
+
+  <main class="cart-main container">
+
+    <!-- Barra de progreso simple -->
+    <div class="checkout-steps">
+      <span class="step step--done">Carrito</span>
+      <span class="step step--current">Entrega</span>
+      <span class="step step--pending">Pago</span>
+    </div>
+
+    <h1 class="cart-title">Entrega</h1>
+
+    <div class="cart-layout">
+
+      <!-- 📨 DATOS DE CONTACTO + ENTREGA -->
+      <section class="checkout-form">
+
+        <!-- Datos de contacto -->
+        <h2>Datos de contacto</h2>
+
+        <form id="checkout-contact-form" class="checkout-form-inner">
+
+          <label class="form-label">
+            E-mail
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="tuemail@ejemplo.com"
+              class="form-input"/>
+          </label>
+
+          <label class="form-checkbox">
+            <input type="checkbox" name="newsletter" />
+            <span>Quiero recibir ofertas y novedades por e-mail</span>
+          </label>
+
+          <!-- Entrega -->
+          <h2>Entrega</h2>
+
+          <label class="form-label">
+            Código Postal
+            <input
+              type="text"
+              name="cp"
+              required
+              placeholder="Ej: 9420"
+              class="form-input"/>
+          </label>
+
+          <!-- Botón continuar (todavía sin MP, eso lo hacemos después) -->
+          <button type="submit" class="btn btn-primary btn-full">
+            Continuar
+          </button>
+
+          <p id="checkout-contact-message" class="checkout-message"></p>
+        </form>
+      </section>
+
+      <!-- 🧾 RESUMEN (placeholder, después lo conectamos al carrito vía JS) -->
+      <aside class="cart-summary">
+        <h2>Tu pedido</h2>
+
+        <div class="summary-row">
+          <span>Producto:</span>
+          <span id="summary-product-name">Llavero Elijo Creer × 1</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Subtotal:</span>
+          <span id="summary-subtotal">$18.000</span>
+        </div>
+
+        <div class="summary-row">
+          <span>Envío:</span>
+          <span>Gratis</span>
+        </div>
+
+        <div class="summary-total">
+          <span>Total:</span>
+          <span id="summary-total">$18.000</span>
+        </div>
+
+        <p class="summary-note">
+          Los detalles de envío y pago se confirman en el siguiente paso.
+        </p>
+      </aside>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> Exiluz. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <script>
+    // ➜ Por ahora, solo prevenimos el submit real.
+    //    Después acá vamos a guardar en Supabase y pasar al paso "Pago".
+    document.getElementById('checkout-contact-form')?.addEventListener('submit', function (e) {
+      e.preventDefault();
+      // TODO: guardar email + CP + carrito y redirigir al siguiente paso
+      document.getElementById('checkout-contact-message').textContent =
+        'Acá después vamos a guardar los datos y seguir al pago. (lógica pendiente)';
+    });
+  </script>
+</body>
+</html>
