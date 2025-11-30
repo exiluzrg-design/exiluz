@@ -46,15 +46,31 @@
       <aside class="cart-summary">
         <h2>Resumen</h2>
 
-        <div class="summary-row"><span>Subtotal:</span><span id="summary-subtotal">$0</span></div>
-        <div class="summary-row"><span>Descuento:</span><span id="summary-discount">-$0</span></div>
-        <div class="summary-row"><span>Envío:</span><span>Gratis</span></div>
+        <div class="summary-row">
+          <span>Subtotal:</span><span id="summary-subtotal">$0</span>
+        </div>
+        <div class="summary-row">
+          <span>Descuento:</span><span id="summary-discount">-$0</span>
+        </div>
+        <div class="summary-row">
+          <span>Envío:</span><span>Gratis</span>
+        </div>
 
-        <div class="summary-total"><span>Total:</span><span id="summary-total">$0</span></div>
+        <div class="summary-total">
+          <span>Total:</span><span id="summary-total">$0</span>
+        </div>
 
-        <p class="summary-note">15% OFF comprando 2 o más — 20% OFF desde 3 unidades.</p>
+        <p class="summary-note">
+          15% OFF comprando 2 o más — 20% OFF desde 3 unidades.
+        </p>
 
-        <button id="btn-checkout" class="btn btn-primary btn-full">Iniciar compra</button>
+        <!-- 🔁 AHORA LLEVA A LA PÁGINA DE MAIL + CP -->
+        <a id="btn-checkout"
+           href="checkout.html"
+           class="btn btn-primary btn-full">
+          Iniciar compra
+        </a>
+
         <p id="checkout-message" class="checkout-message"></p>
       </aside>
 
