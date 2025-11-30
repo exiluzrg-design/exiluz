@@ -11,6 +11,90 @@
   <!-- Banner + Header igual que en el resto del sitio -->
   <link rel="stylesheet" href="assets/css/header-banner.css" />
   <script src="assets/js/header-banner.js" defer></script>
+
+  <!-- Ajustes visuales SOLO para esta página -->
+  <style>
+    .page--checkout .checkout-steps {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      margin-bottom: 24px;
+      color: #9da5b4;
+    }
+    .page--checkout .checkout-steps .step {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .page--checkout .checkout-steps .step::before {
+      content: "";
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 2px solid #3b82f6;
+      background: transparent;
+      box-sizing: border-box;
+    }
+    .page--checkout .checkout-steps .step--done::before {
+      background: #3b82f6;
+    }
+    .page--checkout .checkout-steps .step--current {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .page--checkout .checkout-form-inner {
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .page--checkout .form-label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+    }
+    .page--checkout .form-label input {
+      padding: 10px 12px;
+      border-radius: 4px;
+      border: 1px solid #333a45;
+      background: #050608;
+      color: #f5f5f5;
+      outline: none;
+    }
+    .page--checkout .form-label input::placeholder {
+      color: #6b7280;
+    }
+    .page--checkout .form-label input:focus {
+      border-color: #3b82f6;
+    }
+
+    .page--checkout .checkout-form h2 {
+      margin: 16px 0 8px;
+      font-size: 18px;
+    }
+
+    .page--checkout .btn-full {
+      margin-top: 8px;
+    }
+
+    .page--checkout .checkout-message {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #f97373;
+    }
+
+    /* un poco de respiro abajo en mobile */
+    @media (max-width: 768px) {
+      .page--checkout .cart-layout {
+        flex-direction: column;
+        gap: 24px;
+      }
+    }
+  </style>
 </head>
 
 <body class="page--checkout">
@@ -31,10 +115,13 @@
 
     <div class="cart-layout">
 
-      <!-- 📨 DATOS DE CONTACTO + ENTREGa (CP) -->
+      <!-- 📨 DATOS DE CONTACTO + ENTREGA (CP) -->
       <section class="checkout-form">
 
         <h2>Datos de contacto</h2>
+        <p style="font-size:13px; color:#9da5b4; margin-bottom:12px;">
+          Usamos tu e-mail para enviarte el comprobante de compra.
+        </p>
 
         <form id="checkout-contact-form" class="checkout-form-inner">
 
@@ -44,13 +131,7 @@
               type="email"
               name="email"
               required
-              placeholder="tuemail@ejemplo.com"
-              class="form-input"/>
-          </label>
-
-          <label class="form-checkbox">
-            <input type="checkbox" name="newsletter" />
-            <span>Quiero recibir ofertas y novedades por e-mail</span>
+              placeholder="tuemail@ejemplo.com" />
           </label>
 
           <h2>Entrega</h2>
@@ -61,8 +142,7 @@
               type="text"
               name="cp"
               required
-              placeholder="Ej: 9420"
-              class="form-input"/>
+              placeholder="Ej: 9420" />
           </label>
 
           <button type="submit" class="btn btn-primary btn-full">
@@ -119,7 +199,6 @@
       const form = e.target;
       const email = form.email.value.trim();
       const cp = form.cp.value.trim();
-      const newsletter = form.newsletter.checked;
 
       if (!email || !cp) {
         document.getElementById('checkout-contact-message').textContent =
@@ -131,12 +210,11 @@
       try {
         localStorage.setItem('exiluz_checkout_email', email);
         localStorage.setItem('exiluz_checkout_cp', cp);
-        localStorage.setItem('exiluz_checkout_newsletter', newsletter ? '1' : '0');
       } catch (err) {
         console.warn('No se pudo usar localStorage', err);
       }
 
-      // 👉 Ahora vamos al PASO 2 (envio + botón "Continuar para el pago")
+      // 👉 Ahora vamos al PASO 2 (envío + botón "Continuar para el pago")
       window.location.href = 'envio.html';
     });
   </script>
